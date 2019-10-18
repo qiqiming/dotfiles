@@ -5,7 +5,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
 call plug#end()
+
+" defx 
 call defx#custom#option('_', {
       \ 'winwidth': 45,
       \ 'columns': 'mark:indent:icon:icons:filename:git',
@@ -94,3 +97,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+
+
+let g:airline#extensions#tabline#enabled = 1
