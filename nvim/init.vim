@@ -6,6 +6,9 @@ Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " defx 
@@ -98,12 +101,17 @@ set shiftwidth=4
 set expandtab
 set autoindent
 
+" set background=dark
+colorscheme solarized
+
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme="solarized"
 
 " buffer快速导航
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>bd :bd<CR>
 
 " 查看buffers
 nnoremap <Leader>l :ls<CR>
@@ -119,3 +127,46 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
+
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
