@@ -14,5 +14,6 @@
     "suggest.noselect": false,
     "suggest.minTriggerInputLength": 1,
     "suggest.snippetIndicator": "  🐨",
+    "coc.preferences.formatOnType":true,
 
 }
