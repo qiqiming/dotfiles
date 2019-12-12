@@ -7,6 +7,7 @@ Plug 'kristijanhusak/defx-icons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-startify'
 " Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'altercation/vim-colors-solarized'
 " Plug 'jiangmiao/auto-pairs'
