@@ -8,8 +8,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'altercation/vim-colors-solarized'
+Plug 'flrnprz/plastic.vim'
 " Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
@@ -103,8 +105,11 @@ set shiftwidth=4
 set expandtab
 set autoindent
 
-" set background=dark
-colorscheme solarized
+set background=dark
+syntax on
+colorscheme plastic
+let g:lightline = { 'colorscheme': 'plastic' }
+
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#coc#enabled = 1
@@ -261,6 +266,5 @@ endfunction
 " With this maps you can now toggle the terminal
 nnoremap <leader>` :call MonkeyTerminalToggle()<cr>
 tnoremap <leader>` <C-\><C-n>:call MonkeyTerminalToggle()<cr>
-
 
 
