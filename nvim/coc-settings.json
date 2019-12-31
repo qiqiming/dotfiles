@@ -2,11 +2,11 @@
     "languageserver": {
         "golang": {
             "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "rootPatterns": ["go.mod", ".vim/", ".git/"],
             "filetypes": ["go"],
             "initializationOptions": {
                 "completeUnimported": true,
-                "deepCompletion": true,
+                "deepCompletion": true
             }
         }
     },
@@ -15,5 +15,5 @@
     "suggest.minTriggerInputLength": 1,
     "suggest.snippetIndicator": "  🐨",
     "coc.preferences.formatOnType":true,
-
+    "coc.preferences.formatOnSaveFiletypes": ["go"]
 }
