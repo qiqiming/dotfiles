@@ -8,7 +8,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'altercation/vim-colors-solarized'
 Plug 'flrnprz/plastic.vim'
@@ -287,3 +287,8 @@ let g:startify_custom_header = [
     \ 'K:::::::K    K:::::K oo:::::::::::oo  a::::::::::aa:::al::::::l a::::::::::aa:::a',
     \ 'KKKKKKKKK    KKKKKKK   ooooooooooo     aaaaaaaaaa  aaaallllllll  aaaaaaaaaa  aaaa',
   \ ]
+
+
+
+
+let g:go_def_mapping_enabled = 0
