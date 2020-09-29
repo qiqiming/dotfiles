@@ -18,10 +18,12 @@
             }
         }
     },
-    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.preferences.currentFunctionSymbolAutoUpdate": false,
     "suggest.noselect": false,
     "suggest.minTriggerInputLength": 1,
     "suggest.snippetIndicator": "  🐨",
     "coc.preferences.formatOnType":true,
-    "coc.preferences.formatOnSaveFiletypes": ["go"]
+    "coc.preferences.formatOnSaveFiletypes": ["go"],
+    "diagnostic.errorSign": "✘",
+    "diagnostic.hintSign": "➤"
 }
