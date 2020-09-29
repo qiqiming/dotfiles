@@ -8,6 +8,14 @@
                 "completeUnimported": true,
                 "deepCompletion": true
             }
+        },
+        "cquery": {
+            "command": "cquery",
+            "filetypes": ["c", "cpp"],
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cacheDirectory": "/tmp/cquery"
+            }
         }
     },
     "coc.preferences.currentFunctionSymbolAutoUpdate": true,
