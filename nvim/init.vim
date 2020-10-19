@@ -12,6 +12,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'altercation/vim-colors-solarized'
 Plug 'flrnprz/plastic.vim'
+Plug 'liuchengxu/vista.vim'
+Plug 'voldikss/vim-floaterm'
 " Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
@@ -103,7 +105,12 @@ set nu
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set autoindent
+set smartindent
+set noswapfile
+set nobackup
+set smartcase
+set undodir=~/.vim/undodir
+set undofile
 
 set background=dark
 syntax on
@@ -190,83 +197,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " :set list lcs=tab:\|\ (here is a space).
-set list lcs=tab:\┆\ 
-
-
-
-
-
-
-" With this function you can reuse the same terminal in neovim.
-" You can toggle the terminal and also send a command to the same terminal.
-
-let s:monkey_terminal_window = -1
-let s:monkey_terminal_buffer = -1
-let s:monkey_terminal_job_id = -1
-
-function! MonkeyTerminalOpen()
-  " Check if buffer exists, if not create a window and a buffer
-  if !bufexists(s:monkey_terminal_buffer)
-    " Creates a window call monkey_terminal
-    new monkey_terminal
-    " Moves to the window the right the current one
-    wincmd L
-    let s:monkey_terminal_job_id = termopen($SHELL, { 'detach': 1 })
-
-     " Change the name of the buffer to "Terminal 1"
-     silent file Terminal\ 1
-     " Gets the id of the terminal window
-     let s:monkey_terminal_window = win_getid()
-     let s:monkey_terminal_buffer = bufnr('%')
-
-    " The buffer of the terminal won't appear in the list of the buffers
-    " when calling :buffers command
-    set nobuflisted
-  else
-    if !win_gotoid(s:monkey_terminal_window)
-    sp
-    " Moves to the window below the current one
-    wincmd L   
-    buffer Terminal\ 1
-     " Gets the id of the terminal window
-     let s:monkey_terminal_window = win_getid()
-    endif
-  endif
-endfunction
-
-function! MonkeyTerminalToggle()
-  if win_gotoid(s:monkey_terminal_window)
-    call MonkeyTerminalClose()
-  else
-    call MonkeyTerminalOpen()
-  endif
-endfunction
-
-function! MonkeyTerminalClose()
-  if win_gotoid(s:monkey_terminal_window)
-    " close the current window
-    hide
-  endif
-endfunction
-
-function! MonkeyTerminalExec(cmd)
-  if !win_gotoid(s:monkey_terminal_window)
-    call MonkeyTerminalOpen()
-  endif
-
-  " clear current input
-  call jobsend(s:monkey_terminal_job_id, "clear\n")
-
-  " run cmd
-  call jobsend(s:monkey_terminal_job_id, a:cmd . "\n")
-  normal! G
-  wincmd p
-endfunction
-
-" With this maps you can now toggle the terminal
-nnoremap <leader>` :call MonkeyTerminalToggle()<cr>
-tnoremap <leader>` <C-\><C-n>:call MonkeyTerminalToggle()<cr>
-
+set list lcs=tab:\┊\ 
 
 let g:startify_custom_header = [
     \                                                                                  
