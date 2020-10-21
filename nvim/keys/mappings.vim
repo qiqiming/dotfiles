@@ -18,7 +18,7 @@ nnoremap <c-u> viwU<Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
-" SHIFT-TAB will go back
+" SHIFT-TAB WILL go back
 nnoremap <S-TAB> :bprevious<CR>
 
 " Alternate way to save
@@ -42,3 +42,4 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
+
