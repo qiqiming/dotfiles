@@ -7,3 +7,4 @@ source $HOME/.config/nvim/plug-config/defx.vim
 source $HOME/.config/nvim/themes/airline.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
 source $HOME/.config/nvim/plug-config/vim-go.vim
+source $HOME/.config/nvim/plug-config/vista.vim

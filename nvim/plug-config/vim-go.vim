@@ -4,9 +4,9 @@ autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeIm
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
-" disable vim-go: GoDoc sho cut (K)
+" disable vim-go: GoDoc short cut (K)
 " this is handled by LanguageClient [LC]
-let g:go_doc_keywordprg_enabled = 1
+let g:go_doc_keywordprg_enabled = 0
 
 
 " highlight
