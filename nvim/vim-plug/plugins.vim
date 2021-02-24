@@ -22,6 +22,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'flrnprz/plastic.vim'
   "Plug 'liuchengxu/vista.vim'
   Plug 'voldikss/vim-floaterm'
-  Plug 'zivyangll/git-blame.vim'
+  " Plug 'zivyangll/git-blame.vim'
   " Plug 'dracula/vim', {'as': 'dracula'}
 call plug#end()

@@ -4,16 +4,16 @@ call defx#custom#option('_', {
       \ 'columns': 'mark:indent:icon:icons:filename:git',
       \ 'split': 'vertical',
       \ 'direction': 'topleft',
-      \ 'show_ignored_files': 1,
-      \ 'buffer_name': '',
+      \ 'show_ignored_files': 0,
       \ 'toggle': 1,
       \ 'resume': 1,
       \ 'root_marker': ':',
+      \ 'listed': 1,
       \ })
 
-set conceallevel=2
-set concealcursor=nc
-map <silent> - :Defx<cr>
+set conceallevel=3
+set concealcursor=cv
+map <silent> _ :Defx<cr>
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   IndentLinesDisable
@@ -49,8 +49,8 @@ function s:defx_toggle_zoom() abort "{{{
   endif
 endfunction "}}}
 
-let g:defx_git#show_ignored = 0
-let g:defx_git#column_length = 1
+"let g:defx_git#show_ignored = 0
+"let g:defx_git#column_length = 1
 
 hi def link Defx_filename_directory NERDTreeDirSlash
 hi def link Defx_git_Modified Special
@@ -76,4 +76,8 @@ let g:defx_icons_nested_closed_tree_icon = ''
 
 
 "  }}}
+
+
+
+
 
