@@ -131,5 +131,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
 export PATH="/Users/qiming/go/bin:$PATH"
+export PATH="/usr/local/go/lib:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 eval "$(pyenv init -)"
+
