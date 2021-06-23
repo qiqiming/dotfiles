@@ -28,7 +28,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'akinsho/nvim-bufferline.lua'
   Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 lua require('bufferline').setup()
 lua require "core"
