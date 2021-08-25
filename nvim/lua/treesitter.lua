@@ -11,6 +11,6 @@ ts_config.setup {
     },
     highlight = {
         enable = true,
-        use_languagetree = true,
+        use_languagetree = false, -- use languagetree very slow
     },
 }
