@@ -10,7 +10,8 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
   " Plug 'vim-airline/vim-airline'
   " Plug 'vim-airline/vim-airline-themes'
-  Plug 'Yggdroot/indentLine'
+  " Plug 'Yggdroot/indentLine'
+  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-fugitive'
   Plug 'mhinz/vim-startify'
