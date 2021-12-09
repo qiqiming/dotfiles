@@ -25,8 +25,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+  Plug 'github/copilot.vim'
+  " Plug 'qiqiming/nvim-header.lua'
+  Plug '~/nvim-header.lua'
+  Plug '~/stylua-nvim'
+  Plug 'mhartington/formatter.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
-
+let g:nvim_header_author = 'koala'
 " init lua
 lua require "core"
+

@@ -6,7 +6,7 @@ end
 ts_config.setup {
     ensure_installed = {
         "lua",
-        "python",
+        --"python",
         "go",
     },
     highlight = {
