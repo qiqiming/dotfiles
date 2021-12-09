@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git docker pip zsh-autosuggestions autojump brew
+  git  autojump 
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,16 +110,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="/usr/local/go/lib:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-eval "$(pyenv init -)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh
