@@ -6,7 +6,7 @@ g.nvim_tree_git_hl = 1 -- 0 by default, will enable file highlight for git attri
 g.nvim_tree_highlight_opened_files = 1 -- 0 by default, will enable folder and file icon highlight for opened files/directories.
 g.nvim_tree_root_folder_modifier = ":~" -- This is the default. See :help filename-modifiers for more options
 g.nvim_tree_width_allow_resize = 1 -- 0 by default, will not resize the tree when opening a file
-g.nvim_tree_disable_window_picker = 0 -- 0 by default, will disable the window picker.
+-- g.nvim_tree_disable_window_picker = 0 -- 0 by default, will disable the window picker.
 --  Dictionary of buffer option names mapped to a list of option values that
 --  indicates to the window picker that the buffer's window should not be
 --  selectable.
@@ -53,12 +53,20 @@ g.nvim_tree_icons = {
 		warning = "",
 		error = "",
 	},
+    actions = {
+        open_file = {
+            window_picker = {
+                enable = false
+            }
+        }
+    }
 }
 
 vim.api.nvim_set_keymap("", "_", ":NvimTreeToggle<CR>", {
 	noremap = true,
 	silent = true,
 })
+
 local list = {
 	--   ["u"] = ":lua require'some_module'.some_function()<cr>",
 	-- default mappings

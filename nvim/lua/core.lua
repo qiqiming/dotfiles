@@ -1,3 +1,4 @@
+require("plugins")
 require("nvim-lua-tree")
 require("bufferline").setup()
 require("treesitter")

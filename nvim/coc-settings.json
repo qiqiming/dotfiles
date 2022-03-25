@@ -10,6 +10,7 @@
                 "deepCompletion": true
             }
         },
+
         "cquery": {
             "command": "cquery",
             "filetypes": ["c", "cpp"],
@@ -18,6 +19,7 @@
                 "cacheDirectory": "/tmp/cquery"
             }
         }
+
     },
     "coc.preferences.currentFunctionSymbolAutoUpdate": false,
     "suggest.noselect": false,
@@ -26,5 +28,6 @@
     "coc.preferences.formatOnType":true,
     "coc.preferences.formatOnSaveFiletypes": ["go"],
     "diagnostic.errorSign": "✘",
-    "diagnostic.hintSign": "➤"
+    "diagnostic.hintSign": "➤",
+    "Lua.telemetry.enable": false
 }

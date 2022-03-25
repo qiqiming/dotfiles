@@ -9,3 +9,4 @@ paths.vim
 session
 wiki/
 pack/
+sumneko-lua-ls
