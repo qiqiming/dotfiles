@@ -9,6 +9,7 @@ ts_config.setup {
         --"python",
         "go",
     },
+
     highlight = {
         enable = true,
         use_languagetree = false, -- use languagetree very slow

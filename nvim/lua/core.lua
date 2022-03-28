@@ -1,8 +1,8 @@
 require("plugins")
-require("nvim-lua-tree")
-require("bufferline").setup()
-require("treesitter")
-require("statusline")
+-- require("config.nvim-lua-tree")
+-- require("bufferline").setup()
+-- require("config.treesitter")
+-- require("config.statusline")
 require("loader")
 require("nvim-header").setup()
 require("formatter").setup({
