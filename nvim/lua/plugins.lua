@@ -7,30 +7,30 @@ packer.startup(function(use)
 	use("tpope/vim-fugitive")
 	use("mhinz/vim-startify")
 	use("flrnprz/plastic.vim")
-	use("morhetz/gruvbox")
+	-- use("morhetz/gruvbox")
 	--use 'kyazdani42/nvim-web-devicons'
 	use({
-        "akinsho/nvim-bufferline.lua",
+		"akinsho/nvim-bufferline.lua",
 		requires = { "kyazdani42/nvim-web-devicons" },
-		config = function ()
-		    require("bufferline").setup()
-		end
-    })
+		config = function()
+			require("bufferline").setup()
+		end,
+	})
 
 	-- nvim tree
 	use({
 		"kyazdani42/nvim-tree.lua",
 		config = function()
-		 	require("config.nvim-lua-tree")
+			require("config.nvim-lua-tree")
 		end,
 	})
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-		config = function ()
-		    require("config.treesitter")
-		end
+		config = function()
+			require("config.treesitter")
+		end,
 	})
 
 	-- statusline
@@ -38,10 +38,17 @@ packer.startup(function(use)
 		"glepnir/galaxyline.nvim",
 		branch = "main",
 		requires = { "kyazdani42/nvim-web-devicons" },
-		config = function ()
-		    require("config.statusline")
-		end
+		config = function()
+			require("config.statusline")
+		end,
 	})
+
+    use {
+        "ellisonleao/gruvbox.nvim",
+        requires = {"rktjmp/lush.nvim"}
+    }
+
+	use("alaviss/nim.nvim")
 
 	use("github/copilot.vim")
 	use("~/nvim-header.lua")

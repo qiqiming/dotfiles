@@ -1,9 +1,7 @@
 " important:
 set termguicolors
 
-set background=dark
+set background=light
 syntax on
 colorscheme gruvbox
 
-" Lightline
-let g:lightline = { 'colorscheme': 'gruvbox' }
