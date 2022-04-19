@@ -10,22 +10,23 @@ ts_config.setup {
         "bash",
         "typescript",
         "go",
+        "json",
     },
 
     highlight = {
         enable = true,
-        use_languagetree = true, -- use languagetree very slow
+        use_languagetree = false, -- use languagetree very slow
     },
 
     incremental_selection = {
-    enable = true,
-    keymaps = {
-        init_selection = '<CR>',
-        node_incremental = '<CR>',
-        node_decremental = '<BS>',
-        scope_incremental = '<TAB>',
-    }
-  },
+        enable = true,
+        keymaps = {
+            init_selection = '<CR>',
+            node_incremental = '<CR>',
+            node_decremental = '<BS>',
+            scope_incremental = '<TAB>',
+        }
+    },
 }
 
 
