@@ -1,6 +1,7 @@
 lua require "core"
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/keys/mappings.vim
+source $HOME/.config/nvim/keys/dap-go.vim
 source $HOME/.config/nvim/keys/telescope.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim

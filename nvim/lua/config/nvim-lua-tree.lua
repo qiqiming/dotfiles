@@ -105,16 +105,11 @@ local list = {
 
 nvim_tree.setup({
     open_on_setup = false,
-    auto_close = false,
     open_on_tab = false,
-    update_cwd = false,
+    update_cwd = true,
     disable_netrw = true,
     hijack_netrw = true,
     hijack_cursor = true,
-    update_to_buf_dir = {
-        enable = false,
-        auto_open = true,
-    },
 
     view = {
         side = "left",
@@ -125,10 +120,12 @@ nvim_tree.setup({
             list = list,
         },
     },
+
     filters = {
         dotfiles = false,
-        custom = { ".git", "node_modules", ".cache", "output" },
+        custom = { ".git", "node_modules", "output" },
     },
+
     git = {
         ignore = true,
     },

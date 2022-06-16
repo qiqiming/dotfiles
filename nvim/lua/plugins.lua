@@ -44,10 +44,10 @@ packer.startup(function(use)
         end,
     })
 
-    use {
+    use({
         "ellisonleao/gruvbox.nvim",
-        requires = { "rktjmp/lush.nvim" }
-    }
+        requires = { "rktjmp/lush.nvim" },
+    })
 
     use("alaviss/nim.nvim")
 
@@ -56,4 +56,12 @@ packer.startup(function(use)
     use("mhartington/formatter.nvim")
     use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
+
+    -- dap
+    use("mfussenegger/nvim-dap")
+    use({
+        "rcarriga/nvim-dap-ui",
+        requires = { "mfussenegger/nvim-dap" },
+    })
+    use("leoluz/nvim-dap-go")
 end)
