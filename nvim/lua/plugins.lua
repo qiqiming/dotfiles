@@ -1,15 +1,29 @@
 local packer = require("loader")
---local packer = require"packer"
+
 packer.startup(function(use)
+    -- lsp
+    use("neovim/nvim-lspconfig")
+    use "williamboman/nvim-lsp-installer"
+    -- cmp
+    use { "hrsh7th/nvim-cmp" }
+    use("hrsh7th/cmp-nvim-lsp")
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- cmdline completion
+    use "hrsh7th/cmp-nvim-lua"
+    use "saadparwaiz1/cmp_luasnip"
+
+    use "L3MON4D3/LuaSnip" --snippet engine
+
     use("wbthomason/packer.nvim")
     use("lukas-reineke/indent-blankline.nvim")
-    use({ "neoclide/coc.nvim", branch = "release" })
     use("tpope/vim-fugitive")
     use("mhinz/vim-startify")
     use("flrnprz/plastic.vim")
     use("nvim-lua/popup.nvim")
     -- use("morhetz/gruvbox")
     --use 'kyazdani42/nvim-web-devicons'
+    --use({ "neoclide/coc.nvim", branch = "release" })
 
     use({
         "akinsho/nvim-bufferline.lua",
