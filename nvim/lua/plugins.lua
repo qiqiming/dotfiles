@@ -7,8 +7,10 @@ packer.startup(function(use)
     use("tpope/vim-fugitive")
     use("mhinz/vim-startify")
     use("flrnprz/plastic.vim")
+    use("nvim-lua/popup.nvim")
     -- use("morhetz/gruvbox")
     --use 'kyazdani42/nvim-web-devicons'
+
     use({
         "akinsho/nvim-bufferline.lua",
         requires = { "kyazdani42/nvim-web-devicons" },
@@ -53,7 +55,26 @@ packer.startup(function(use)
 
     use("github/copilot.vim")
     use("~/nvim-header.lua")
-    use("mhartington/formatter.nvim")
+    use({
+        "mhartington/formatter.nvim",
+        config = function()
+            require("formatter").setup({
+                logging = false,
+                filetype = {
+                    lua = {
+                        function()
+                            return {
+                                exe = "stylua",
+                                args = { "--stdin-filepath", vim.fn.expand("%:t"), "-" },
+                                stdin = true,
+                            }
+                        end,
+                    },
+                },
+            })
+        end,
+    })
+
     use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
 
@@ -62,6 +83,22 @@ packer.startup(function(use)
     use({
         "rcarriga/nvim-dap-ui",
         requires = { "mfussenegger/nvim-dap" },
+        config = function()
+            require("config.dap-ui")
+        end,
     })
-    use("leoluz/nvim-dap-go")
+
+    use({
+        "theHamsta/nvim-dap-virtual-text",
+        config = function()
+            require("nvim-dap-virtual-text").setup()
+        end,
+    })
+
+    use({
+        "leoluz/nvim-dap-go",
+        config = function()
+            require("dap-go").setup()
+        end,
+    })
 end)
