@@ -50,14 +50,65 @@ nvim_tree.setup({
     disable_netrw = true,
     hijack_netrw = true,
     hijack_cursor = true,
+    open_on_setup_file = false,
+    sort_by = "name",
 
     view = {
         side = "left",
         width = 30,
+        hide_root_folder = false,
+        preserve_window_proportions = false,
+        number = false,
+        relativenumber = false,
+        signcolumn = "yes",
         mappings = {
             custom_only = true,
             list = list,
         },
+    },
+    diagnostics = {
+        enable = false,
+        show_on_dirs = true,
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        },
+    },
+    renderer = {
+        indent_markers = {
+            enable = false,
+            icons = {
+                corner = "└ ",
+                edge = "│ ",
+                none = "  ",
+            },
+        },
+        icons = {
+            webdev_colors = true,
+            glyphs = {
+                folder = {
+                    arrow_closed = "",
+                    arrow_open = "",
+                    default = "",
+                    open = "",
+                    empty = "",
+                    empty_open = "",
+                    symlink = "",
+                },
+
+            },
+        },
+    },
+    hijack_directories = {
+        enable = true,
+        auto_open = true,
+    },
+    update_focused_file = {
+        enable = true,
+        update_cwd = true,
+        ignore_list = {},
     },
 
     filters = {
@@ -66,6 +117,27 @@ nvim_tree.setup({
     },
 
     git = {
+        enable = true,
         ignore = true,
+    },
+    actions = {
+        use_system_clipboard = true,
+        change_dir = {
+            enable = true,
+            global = false,
+            restrict_above_cwd = false,
+        },
+        open_file = {
+            quit_on_open = false,
+            resize_window = true,
+            window_picker = {
+                enable = true,
+                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                exclude = {
+                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                    buftype = { "nofile", "terminal", "help" },
+                },
+            },
+        },
     },
 })

@@ -18,9 +18,18 @@ packer.startup(function(use)
     use("wbthomason/packer.nvim")
     use("lukas-reineke/indent-blankline.nvim")
     use("tpope/vim-fugitive")
-    use("mhinz/vim-startify")
     use("flrnprz/plastic.vim")
     use("nvim-lua/popup.nvim")
+    use {
+        "startup-nvim/startup.nvim",
+        requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+        config = function()
+            require"startup".setup({
+                theme = "startify",
+            })
+        end
+    }
+    -- use("mhinz/vim-startify")
     -- use("morhetz/gruvbox")
     --use 'kyazdani42/nvim-web-devicons'
     --use({ "neoclide/coc.nvim", branch = "release" })

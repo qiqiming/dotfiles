@@ -3,8 +3,7 @@ local M = {}
 
 M.setup = function()
     local signs = {
-        { name = "DiagnosticSignError", text = "E" },
-        --{ name = "DiagnosticSignError", text = "" },
+        { name = "DiagnosticSignError", text = "" },
         { name = "DiagnosticSignWarn", text = "" },
         { name = "DiagnosticSignHint", text = "" },
         { name = "DiagnosticSignInfo", text = "" },
@@ -45,6 +44,7 @@ end
 
 local function lsp_keymaps(bufnr)
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local opts = { noremap=true, silent=true,  }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -55,6 +55,9 @@ local function lsp_keymaps(bufnr)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'g[', vim.lsp.diagnostic.goto_prev, bufopts)
+    vim.keymap.set('n', 'g]', vim.lsp.diagnostic.goto_next, bufopts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 
     --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)

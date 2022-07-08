@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-local ok, lsp_config = pcall(require, "config.lsp.lsp_config")
+local ok, lsp_config = pcall(require, "config.lsp.lsp-config")
 if not ok then
   vim.notify("nvim     lspconfig not found!")
   return
