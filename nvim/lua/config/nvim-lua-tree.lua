@@ -46,7 +46,7 @@ local list = {
 nvim_tree.setup({
     open_on_setup = false,
     open_on_tab = false,
-    update_cwd = true,
+    sync_root_with_cwd = true,
     disable_netrw = true,
     hijack_netrw = true,
     hijack_cursor = true,
@@ -60,7 +60,6 @@ nvim_tree.setup({
         preserve_window_proportions = false,
         number = false,
         relativenumber = false,
-        signcolumn = "yes",
         mappings = {
             custom_only = true,
             list = list,
@@ -106,8 +105,8 @@ nvim_tree.setup({
         auto_open = true,
     },
     update_focused_file = {
-        enable = true,
-        update_cwd = true,
+        enable = false,
+        update_root = true,
         ignore_list = {},
     },
 
