@@ -55,8 +55,8 @@ local function lsp_keymaps(bufnr)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'g[', vim.lsp.diagnostic.goto_prev, bufopts)
-    vim.keymap.set('n', 'g]', vim.lsp.diagnostic.goto_next, bufopts)
+    vim.keymap.set('n', '[g', vim.lsp.diagnostic.goto_prev, bufopts)
+    vim.keymap.set('n', ']g', vim.lsp.diagnostic.goto_next, bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 
@@ -77,6 +77,47 @@ local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
   return
 end
+
+function go_org_imports(wait_ms)
+    local params = vim.lsp.util.make_range_params()
+    params.context = {only = {"source.organizeImports"}}
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+    for cid, res in pairs(result or {}) do
+        for _, r in pairs(res.result or {}) do
+            if r.edit then
+                local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+                vim.lsp.util.apply_workspace_edit(r.edit, enc)
+            end
+        end
+    end
+end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.go" },
+  callback = function()
+	  vim.lsp.buf.formatting_sync(nil, 3000)
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.go" },
+	callback = function()
+		local params = vim.lsp.util.make_range_params(nil, vim.lsp.util._get_offset_encoding())
+		params.context = {only = {"source.organizeImports"}}
+
+		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
+		for _, res in pairs(result or {}) do
+			for _, r in pairs(res.result or {}) do
+				if r.edit then
+					vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding())
+				else
+					vim.lsp.buf.execute_command(r.command)
+				end
+			end
+		end
+	end,
+})
+
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 return M
