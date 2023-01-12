@@ -1,13 +1,13 @@
 local function load_dap_sign()
     local dap_breakpoint = {
         error = {
-            text = "🛑",
+            text = "",
             texthl = "LspDiagnosticsSignError",
             linehl = "",
             numhl = "",
         },
         rejected = {
-            text = "",
+            text = "x",
             texthl = "LspDiagnosticsSignHint",
             linehl = "",
             numhl = "",

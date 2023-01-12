@@ -14,14 +14,6 @@
             "command": "nimlsp",
             "filetypes": [ "nim" ],
             "trace.server": "verbose"
-        },
-        "cquery": {
-            "command": "cquery",
-            "filetypes": ["c", "cpp"],
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
-            "initializationOptions": {
-                "cacheDirectory": "/tmp/cquery"
-            }
         }
     },
 
